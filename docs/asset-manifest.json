@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/miyako/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/miyako/static/js/main.e385b096.chunk.js",
+    "main.js.map": "/miyako/static/js/main.e385b096.chunk.js.map",
+    "runtime~main.js": "/miyako/static/js/runtime~main.7d2ade92.js",
+    "runtime~main.js.map": "/miyako/static/js/runtime~main.7d2ade92.js.map",
+    "static/js/2.94ab87fb.chunk.js": "/miyako/static/js/2.94ab87fb.chunk.js",
+    "static/js/2.94ab87fb.chunk.js.map": "/miyako/static/js/2.94ab87fb.chunk.js.map",
+    "index.html": "/miyako/index.html",
+    "precache-manifest.b17704a98e3f88d9bdbc954365939bd8.js": "/miyako/precache-manifest.b17704a98e3f88d9bdbc954365939bd8.js",
+    "service-worker.js": "/miyako/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/miyako/static/css/main.5ecd60fb.chunk.css.map"
+  }
+}
