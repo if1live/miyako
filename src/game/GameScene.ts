@@ -1,8 +1,15 @@
 import Phaser from 'phaser';
+import { store } from '../helpers';
+import * as A from '../actions';
 
 // https://labs.phaser.io/view.html?src=src\input\mouse\click%20sprite.js
 // https://medium.freecodecamp.org/how-to-build-a-simple-game-in-the-browser-with-phaser-3-and-typescript-bdc94719135
 export class GameScene extends Phaser.Scene {
+	text: Phaser.GameObjects.Text | undefined;
+	outgameSprite: Phaser.GameObjects.Sprite | undefined;
+	gameSprite: Phaser.GameObjects.Sprite | undefined;
+	ingameSprite: Phaser.GameObjects.Sprite | undefined;
+
 	public preload() {
 		this.load.image('raster', '/assets/raster-bw-800x16.png');
 		this.load.image('eye', '/assets/lance-overdose-loader-eye.png');
@@ -46,26 +53,27 @@ export class GameScene extends Phaser.Scene {
 			});
 		});
 
-		const sprite = this.add.sprite(600, 100, 'eye').setInteractive();
+		this.outgameSprite = this.add.sprite(600, 30, 'eye').setInteractive();
+		this.outgameSprite.scaleX = 0.3;
+		this.outgameSprite.scaleY = 0.3;
+		this.outgameSprite.on('pointerdown', () => store.dispatch(A.outgameCheck()));
 
-		sprite.on('pointerdown', function (pointer: any) {
-			sprite.setTint(0xff0000);
-			// this.setTint(0xff0000);
-		});
+		this.gameSprite = this.add.sprite(650, 30, 'eye').setInteractive();
+		this.gameSprite.scaleX = 0.3;
+		this.gameSprite.scaleY = 0.3;
+		this.gameSprite.on('pointerdown', () => store.dispatch(A.gameCheck()));
 
-		sprite.on('pointerout', function (pointer: any) {
-			sprite.clearTint();
-			// this.clearTint();
+		this.ingameSprite = this.add.sprite(700, 30, 'eye').setInteractive();
+		this.ingameSprite.scaleX = 0.3;
+		this.ingameSprite.scaleY = 0.3;
+		this.ingameSprite.on('pointerdown', () => store.dispatch(A.ingameCheck()));
 
-		});
-
-		sprite.on('pointerup', function (pointer: any) {
-			sprite.clearTint();
-			// this.clearTint();
-		});
+		this.text = this.add.text(700, 50, 'game');
+		this.text.setTint(0xff00ff, 0xffff00, 0x0000ff, 0xff0000);
 	}
 
 	public update() {
-
+		const state = store.getState();
+		this.text!.text = `game: ${state.game}`;
 	}
 }
