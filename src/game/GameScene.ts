@@ -11,8 +11,8 @@ export class GameScene extends Phaser.Scene {
 	ingameSprite: Phaser.GameObjects.Sprite | undefined;
 
 	public preload() {
-		this.load.image('raster', '/assets/raster-bw-800x16.png');
-		this.load.image('eye', '/assets/lance-overdose-loader-eye.png');
+		this.load.image('raster', 'assets/raster-bw-800x16.png');
+		this.load.image('eye', 'assets/lance-overdose-loader-eye.png');
 	}
 
 	public create() {
