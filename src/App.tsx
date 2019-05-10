@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import Phaser from 'phaser';
+import React, { useState } from 'react';
 import './App.css';
+import { PhaserGame } from './PhaserGame';
+import { GameScene } from './GameScene';
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [gameVisible, setGameVisible] = useState(true);
+	const [counter, setCounter] = useState(0);
+
+	const handleToggle = () => {
+		setGameVisible(!gameVisible);
+	};
+
+	const handleCounter = () => {
+		setCounter(counter + 1);
+	}
+
+	return (
+		<div className="App">
+			<div>
+				<h2>game</h2>
+				<button onClick={handleToggle}>toggle game</button>
+				<span>counter: {counter}</span>
+			</div>
+
+			{gameVisible ? <PhaserGame handleCounter={handleCounter} /> : null}
+		</div>
+	);
 }
+
+// 게임은 1번만 초기화 시킬것
+const game = new Phaser.Game({
+	type: Phaser.AUTO,
+	parent: 'phaser-example',
+	width: 800,
+	height: 600,
+	scene: GameScene,
+});
 
 export default App;
