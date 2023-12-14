@@ -32,3 +32,12 @@ https://medium.com/@stefannovak96/hosting-rabbitmq-on-fly-io-in-5-minutes-e749db
 	rabbitmq_web_stomp
 ].
 ```
+
+## localhost
+
+```sh
+podman build -t miyako-rabbitmq .
+docker-compose up -d
+http://127.0.0.1:15672/
+id: guest / pw: guest
+```
