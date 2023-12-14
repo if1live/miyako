@@ -8,6 +8,11 @@ cpu_kind = "shared"
 cpus = 1
 memory_mb = 256
 
+[http_service]
+internal_port = 15675
+force_https = true
+processes = ["app"]
+
 [[services]]
 protocol = "tcp"
 internal_port = 5672
