@@ -5,10 +5,10 @@ services:
   rabbitmq:
     image: miyako-rabbitmq
     ports:
-      - 1883:1883
-      - 5672:5672
-      - 15672:15672
-      - 15675:15675
+      - 1883:1883 # MQTT
+      - 5672:5672 # AMQP
+      - 15672:15672 # Management
+      - 15675:15675 # MQTT over Websocket
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest

@@ -1,0 +1,22 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "fix": "biome check --apply-unsafe .",
+    "lint": "biome check .",
+    "start:env": "node --env-file .env.local src/mqtt_simple.mjs",
+    "start:localhost": "node src/mqtt_simple.mjs"
+  },
+  "dependencies": {
+    "mqtt": "^5.3.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.4.1"
+  }
+}
