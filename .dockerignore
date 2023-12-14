@@ -1,0 +1,13 @@
+# dockerignore 확인용 명령
+# https://stackoverflow.com/a/68196656
+
+# git
+.git
+
+# editor
+.*.sw[a-z]
+.vscode
+
+**/node_modules/
+**/dist/
+**/test/
