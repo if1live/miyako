@@ -101,6 +101,21 @@ subscribe [ { topic: '/priv/room/sample', qos: 0 } ]
 /priv/room/sample now: 2023-12-14T16:46:44.600Z
 ```
 
+## user
+
+management까지 접속할 수 있는 최상위 권한을 고작 mqtt 목적으로 쓰고싶지 않다.
+유저를 적절히 추가한다.
+
+1. Admin -> Add User -> 생성된 유저의 상페 페이지로 이동
+2. permission 추가 (기본값으로 생성해도 문제없음)
+	* virtual host: /
+	* Configure regexp: .*
+	* Write regexp: .*
+	* Read regexp: .*
+
+주의: fly.io deploy 다시 하면 설정된 계정 정보가 날아간다.
+계정 정보를 저장하는 다른 방법을 찾아야하는데 일단은 admin 써도 버틸수 있으니까 나중에 검토
+
 ## note
 
 참고 링크
